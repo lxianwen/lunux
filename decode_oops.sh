@@ -1,0 +1,1 @@
+scripts/decodecode < oops.log 

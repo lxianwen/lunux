@@ -1,0 +1,63 @@
+
+menu "hybrid memory"
+
+config DISABLE_AUTONUMA
+	bool "Disable autonuma scan"
+
+# page hotnesss
+config PAGE_HOTNESS
+	bool "Enable PAGE_HOTNESS for Tiered Memory System"
+    depends on PAGE_EXTENSION
+
+config PAGE_HOTNESS_DEBUG
+	bool "Enable PAGE_HOTNESS_DEBUG for Tiered Memory System"
+    depends on PAGE_HOTNESS
+
+config PAGE_HOTNESS_STAT
+	bool "Enable CONFIG_PAGE_HOTNESS_STAT for Tiered Memory System"
+	depends on PAGE_HOTNESS
+
+config PAGE_CHANGE_PROT
+	bool "Enable PAGE_CHANGE_PROT for Tiered Memory System"
+    def_bool y
+
+config PAGE_CHANGE_PROT_DEBUG
+	bool "Enable PAGE_CHANGE_PROT_DEBUG for Tiered Memory System"
+    def_bool y
+
+config PAGE_GUPS_TEST
+	bool "lmy test GUPS to verify migrate correctness"
+
+config STATIC_THRESHOLD
+	bool "use static threshold"
+	def_bool y
+
+config PAGE_EXCHANGE
+	bool "Enable page exchange facility"
+	def_bool n
+
+config CANDIDATE_PAGE
+	bool "Enable candidate page facility"
+	def_bool n
+
+config ACCESS_HISTOGRAM
+	bool "Enable access histogram facility"
+	def_bool n
+
+config PAGE_RECENTLY_ACCESSED_FLAG
+	bool "Enable page recently accessed flag"
+	def_bool y
+
+# numa predict
+config NUMA_PREDICT
+	bool "Enable Predict for Tiered Memory System"
+	depends on MEMCG
+
+config NUMA_DUP_PREDICT
+	bool "Enable Dup Predict for Tiered Memory System"
+	depends on MEMCG
+
+config NUMA_PREDICT_DEBUG
+	bool "Enable Predict Debug for Tiered Memory System"
+
+endmenu

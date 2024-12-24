@@ -1,0 +1,1 @@
+journalctl -o short-precise -k -b -1
